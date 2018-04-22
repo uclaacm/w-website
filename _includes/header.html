@@ -1,10 +1,48 @@
 <nav>
-  <ul>
-    {% for page in site.pages %}
-      {% if page.title %}
-        <li class="nav-item"><a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a></li>
-      {% endif %}
-    {% endfor %}
-        <li><a href="{{ /blog | prepend: site.baseurl }}">blog</a></li>
+  <ul class="container-nav">
+    {% if page.url == '/' %}
+      <li class="active"><a href=" {{ site.baseurl }}"/>home</a></li>
+      {% for node in site.pages %}
+        {% if node.title-exists %}
+          {% if node.url != '/' %}
+            {% if node.title == "blog" %}
+              <li class="blog"><a href="{{ "/blog" | prepend: site.baseurl }}">blog</a></li>
+            {% else %}
+              <li><a href="{{ site.baseurl }}{{ node.url }}">{{ node.title }}</a></li>
+            {% endif %}
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+    {% else %}
+      <li><a href="{{ site.baseurl }}/">home</a></li>
+      {% for node in site.pages %}
+        {% if node.title-exists %}
+          {% if node.url !="/" %}
+            {% if page.url contains node.url %}
+              {% if node.title == "blog" %}
+                <li class="active blog"><a href="{{ "/blog" | prepend: site.baseurl }}">blog</a></li>
+              {% else %}
+                <li class="active"><a href="{{ site.baseurl }}{{ node.url }}">{{ node.title }}</a></li>
+              {% endif %}
+            {% else %}
+              {% if node.title == "blog" %}
+                <li class="blog"><a href="{{ "/blog" | prepend: site.baseurl }}">blog</a></li>
+              {% else %}
+                <li><a href="{{ site.baseurl }}{{ node.url }}">{{ node.title }}</a></li>
+              {% endif %}
+            {% endif %}
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+<!-- <li class="blog"><a href="{{ "/blog" | prepend: site.baseurl }}">blog</a></li> -->
+<li>
+  <a href="/">
+    <div class="container-brand">
+      <img class="brand logo" src="/assets/images/w-logo.png" alt="ACM-W Logo">
+      <img class="brand wordmark" src="/assets/images/w-wordmark-darkcolor.png" alt="ACM-W Wordmark">
+    </div>
+  </a>
+</li>
   </ul>
 </nav>
