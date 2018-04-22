@@ -3,4 +3,4 @@ layout: home
 title: home
 permalink: /
 ---
-this is the home page.
+this is the index page.
