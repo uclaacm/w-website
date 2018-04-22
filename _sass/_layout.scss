@@ -1,5 +1,62 @@
+/* general styling */
+a {
+  text-decoration: none;
+  color: $w-color-tint;
+  &:hover {
+    text-decoration: none;
+    font-weight: bold;
+    color: $w-color;
+  }
+}
+
+.active {
+  font-weight: bold;
+  color: $w-color;
+}
+
+/* nav styling */
+nav {
+  .container-nav {
+    padding-left: 0px;
+    display: flex;
+    li {
+      list-style: none;
+      padding: 0 15px;
+      font-family: $font-heading;
+    }
+  }
+  .blog {
+    flex: 1;
+  }
+  .container-brand {
+    display: flex;
+  }
+  .logo {
+    height: 20px;
+    padding-right: 5px;
+  }
+  .wordmark {
+    height: 20px;
+  }
+}
+
+@media all and (max-width: 400px) {
+  .container-nav > li {
+    flex-basis: 100%;
+  }
+  .blog {
+    order: 1;
+  }
+}
+
+/* home styling */
+
+/* footer styling */
+footer {
+  font-family: $font-heading;
+}
 .container-body {
-  font-family: 'Scope One', serif;
+  font-family: $font-body;
 }
 
 //about styling
