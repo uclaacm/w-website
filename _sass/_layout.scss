@@ -60,6 +60,14 @@ footer {
 }
 
 //about styling
+
+.officers {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 20px 0px;
+}
+
 .board-member-box {
   width: $bm-size;
   height: $bm-size;
